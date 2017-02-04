@@ -193,7 +193,9 @@ class LoginClient(object):
         # url
         url = 'https://www.youtube.com/o/oauth2/device/code'
 
-        result = requests.post(url, data=post_data, headers=headers, verify=False)
+        # result = requests.post(url, data=post_data, headers=headers, verify=False)
+        import requests
+        result = requests.post(url, post_data, headers=headers)
         if result.status_code != requests.codes.ok:
             raise LoginException('Login Failed')
 
